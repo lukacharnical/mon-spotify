@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mon Lecteur Spotify</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="player-card">
+    <h2 class="player-title">Ma Sélection Musicale</h2>
+    
+    <!-- Zone de lecture Spotify -->
+    <div class="iframe-container">
+      <iframe 
+        id="spotify-player" 
+        src="https://open.spotify.com/embed/playlist/52cx7aUbXUedaNv4z9w5vw?utm_source=generator" 
+        width="100%" 
+        height="352" 
+        frameBorder="0" 
+        allowfullscreen="" 
+        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+        loading="lazy">
+      </iframe>
+    </div>
+
+    <!-- Boutons d'interaction -->
+    <div class="controls">
+      <button class="btn" onclick="chargerPlaylist('playlist', '52cx7aUbXUedaNv4z9w5vw')">Playlist Pop</button>
+      <button class="btn" onclick="chargerPlaylist('album', '4aawyAB9vmqN3uQ7FjRGTy')">Album Cyndi Lauper</button>
+    </div>
+  </div>
+
+  <script>
+    function chargerPlaylist(type, id) {
+      const iframe = document.getElementById('spotify-player');
+      iframe.src = `https://open.spotify.com/embed/${type}/${id}?utm_source=generator`;
+    }
+  </script>
+</body>
+</html>
